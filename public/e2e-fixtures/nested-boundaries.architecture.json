@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "嵌套区域框夹具",
+    "output": "nested-boundaries.html",
+    "editor": {
+      "mode": "free",
+      "styles": { "web": { "fill": "#fff" } }
+    }
+  },
+  "components": [
+    { "id": "web", "type": "frontend", "label": "Web", "pos": [100, 80], "size": [120, 56], "style": { "fill": "#E8F1FF" } },
+    { "id": "api", "type": "backend", "label": "API", "pos": [280, 80], "size": [120, 56] },
+    { "id": "db", "type": "database", "label": "DB", "pos": [460, 80], "size": [120, 56] }
+  ],
+  "connections": [
+    { "id": "e1", "from": "web", "to": "api", "label": "HTTPS" },
+    { "id": "e2", "from": "api", "to": "db", "label": "SQL" }
+  ],
+  "boundaries": [
+    {
+      "kind": "region",
+      "label": "数据面层（双进程）",
+      "wraps": ["web", "api", "db"],
+      "pad": 14,
+      "padBottom": 40
+    },
+    {
+      "kind": "region",
+      "label": "主处理进程",
+      "wraps": ["api", "db"],
+      "pad": 14
+    },
+    {
+      "kind": "region",
+      "label": "基础设施底座",
+      "wraps": ["db"],
+      "padBottom": 24
+    }
+  ]
+}

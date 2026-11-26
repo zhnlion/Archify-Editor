@@ -1,0 +1,12 @@
+flowchart TD
+  start(["收包"])
+  parse["解析头"]
+  decide{"命中策略?"}
+  check["安全检测"]
+  forward(["转发"])
+  drop(["丢弃"])
+  start --> parse
+  parse --> decide
+  decide -->|是| check
+  decide -->|否| drop
+  check --> forward

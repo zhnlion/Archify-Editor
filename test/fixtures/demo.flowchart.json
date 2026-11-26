@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "diagram_type": "flowchart",
+  "meta": { "title": "包处理流程", "output": "flow.html", "locale": "zh-CN" },
+  "nodes": [
+    { "id": "n1", "shape": "start", "label": "收包", "pos": [80, 40], "size": [120, 48] },
+    { "id": "n2", "shape": "process", "label": "解析头", "pos": [70, 130], "size": [140, 56] },
+    { "id": "n3", "shape": "decision", "label": "命中策略?", "pos": [60, 230], "size": [160, 90] },
+    { "id": "n4", "shape": "process", "label": "安全检测", "pos": [70, 360], "size": [140, 56] },
+    { "id": "n5", "shape": "end", "label": "转发", "pos": [80, 460], "size": [120, 48] },
+    { "id": "n6", "shape": "end", "label": "丢弃", "pos": [320, 250], "size": [120, 48] }
+  ],
+  "edges": [
+    { "id": "e1", "from": "n1", "to": "n2" },
+    { "id": "e2", "from": "n2", "to": "n3" },
+    { "id": "e3", "from": "n3", "to": "n4", "label": "是" },
+    { "id": "e4", "from": "n3", "to": "n6", "label": "否" },
+    { "id": "e5", "from": "n4", "to": "n5" }
+  ]
+}

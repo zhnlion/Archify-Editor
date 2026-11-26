@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Archify Editor Demo",
+    "subtitle": "拖拽节点调整布局",
+    "locale": "zh-CN",
+    "output": "demo.html",
+    "quality_profile": "showcase",
+    "editor": { "mode": "free" }
+  },
+  "components": [
+    { "id": "user", "type": "external", "label": "用户", "sublabel": "Browser", "pos": [60, 200], "size": [120, 56] },
+    { "id": "ui", "type": "frontend", "label": "Editor UI", "sublabel": "Vite + React", "pos": [260, 200], "size": [140, 64] },
+    { "id": "store", "type": "backend", "label": "Diagram Store", "sublabel": "JSON-IR", "pos": [480, 200], "size": [150, 64] },
+    { "id": "cli", "type": "cloud", "label": "Archify CLI", "sublabel": "finalize", "pos": [710, 200], "size": [140, 64] },
+    { "id": "html", "type": "frontend", "label": "HTML Viewer", "sublabel": "分享预览", "pos": [710, 340], "size": [140, 56] }
+  ],
+  "connections": [
+    { "id": "c1", "from": "user", "to": "ui", "label": "拖拽编辑", "variant": "emphasis" },
+    { "id": "c2", "from": "ui", "to": "store", "label": "更新 pos" },
+    { "id": "c3", "from": "store", "to": "cli", "label": "导出 JSON" },
+    { "id": "c4", "from": "cli", "to": "html", "label": "渲染", "fromSide": "bottom", "toSide": "top" }
+  ],
+  "boundaries": [{ "kind": "region", "label": "编辑器内核", "wraps": ["ui", "store"] }],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "MVP",
+      "items": ["拖拽改坐标", "导入导出 Archify JSON", "调用 finalize 出 HTML"]
+    }
+  ]
+}

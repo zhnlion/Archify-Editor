@@ -1,0 +1,20 @@
+---
+title: Mermaid Missing Shapes Test
+---
+flowchart LR; start([Receive]):::entry --> parse[Parse header]
+  parse --> decide{Valid?}
+  decide -->|"yes"| check((Security check))
+  decide -- no --> reject>Reject]
+  check -.-> store[(Store)]
+  store ==> notify[[Notify]]
+  subgraph workers [Workers]
+    prep{{Prepare}}
+    data[/Payload/]
+    prep --> data
+  end
+  notify --> prep
+  prep --> done([Done])
+  data --> fanout[Dispatch]
+  fanout --> left[Left] & right[Right]
+  left --> done
+  right --> done

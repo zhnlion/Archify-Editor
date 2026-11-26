@@ -1,0 +1,7 @@
+C4Context
+title System Context diagram
+Person(user, "User", "A user of the system")
+System(sys, "Core System", "Does the work")
+System_Ext(mail, "Mail System", "Sends email")
+Rel(user, sys, "Uses")
+Rel(sys, mail, "Sends alerts")

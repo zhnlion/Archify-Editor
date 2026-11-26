@@ -1,0 +1,22 @@
+<mxfile host="archify-editor">
+  <diagram name="subset" id="page">
+    <mxGraphModel>
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="step" value="处理" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E8F1FF;strokeColor=#3D9CF0;fontColor=#0F172A;" vertex="1" parent="1">
+          <mxGeometry x="80" y="60" width="160" height="64" as="geometry"/>
+        </mxCell>
+        <mxCell id="ask" value="判断" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFF4E5;strokeColor=#FBBF24;" vertex="1" parent="1">
+          <mxGeometry x="300" y="40" width="140" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="aws" value="S3" style="shape=mxgraph.aws4.s3;html=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="60" width="60" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" value="是" style="endArrow=classic;html=1;" edge="1" parent="1" source="step" target="ask">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

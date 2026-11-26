@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "分层跨层与摘要卡",
+    "output": "layered-cards.html",
+    "locale": "zh-CN",
+    "quality_profile": "showcase",
+    "editor": {
+      "mode": "layered",
+      "layerEdgeRule": "downward",
+      "layers": [
+        { "id": "layer-web", "label": "展示层", "order": 0, "height": 140 },
+        { "id": "layer-svc", "label": "服务层", "order": 1, "height": 140 },
+        { "id": "layer-data", "label": "数据层", "order": 2, "height": 140 }
+      ]
+    }
+  },
+  "components": [
+    { "id": "web", "type": "frontend", "label": "Web", "pos": [120, 50], "size": [120, 56] },
+    { "id": "api", "type": "backend", "label": "API", "pos": [120, 198], "size": [120, 56] },
+    { "id": "db", "type": "database", "label": "DB", "pos": [120, 346], "size": [120, 56] }
+  ],
+  "connections": [
+    { "id": "e1", "from": "web", "to": "api", "label": "HTTPS" },
+    { "id": "e2", "from": "api", "to": "db", "label": "SQL" },
+    { "id": "e-up", "from": "db", "to": "api", "label": "回调（违规）" }
+  ],
+  "boundaries": [
+    { "kind": "region", "label": "展示层", "wraps": ["web"] },
+    { "kind": "region", "label": "服务层", "wraps": ["api"] },
+    { "kind": "region", "label": "数据层", "wraps": ["db"] }
+  ],
+  "cards": [
+    { "dot": "cyan", "title": "分层", "items": ["跨层规则开启", "摘要卡可编"] },
+    { "dot": "amber", "title": "注意", "items": ["db→api 为自下而上"] }
+  ]
+}

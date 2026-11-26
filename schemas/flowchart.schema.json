@@ -1,0 +1,149 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/local/archify-editor/schemas/flowchart.schema.json",
+  "title": "Archify Editor Flowchart IR",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "diagram_type", "meta", "nodes", "edges"],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "diagram_type": { "const": "flowchart" },
+    "meta": {
+      "type": "object",
+      "required": ["title", "output"],
+      "properties": {
+        "title": { "type": "string", "minLength": 1 },
+        "subtitle": { "type": "string" },
+        "output": { "type": "string", "minLength": 1 },
+        "locale": { "type": "string" },
+        "quality_profile": { "type": "string" },
+        "editor": { "type": "object" },
+        "format_hints": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "source": {
+              "enum": ["native", "mermaid", "drawio", "archify"]
+            },
+            "original_name": { "type": "string" }
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "shape", "label"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "shape": {
+            "enum": [
+              "start",
+              "process",
+              "decision",
+              "end",
+              "subprocess",
+              "document",
+              "data",
+              "preparation",
+              "manual",
+              "delay",
+              "connector",
+              "display",
+              "note",
+              "text",
+              "database",
+              "offpage",
+              "merge",
+              "multi_document",
+              "chevron",
+              "arrow_right",
+              "arrow_left",
+              "arrow_up",
+              "arrow_down",
+              "arrow_both"
+            ]
+          },
+          "label": { "type": "string" },
+          "tagId": { "type": "string" },
+          "pos": {
+            "type": "array",
+            "prefixItems": [{ "type": "number" }, { "type": "number" }],
+            "items": false,
+            "minItems": 2,
+            "maxItems": 2
+          },
+          "size": {
+            "type": "array",
+            "prefixItems": [{ "type": "number" }, { "type": "number" }],
+            "items": false,
+            "minItems": 2,
+            "maxItems": 2
+          },
+          "style": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "fill": { "type": "string" },
+              "stroke": { "type": "string" },
+              "text": { "type": "string" },
+              "strokeWidth": { "type": "number" },
+              "fontSize": { "type": "number" },
+              "subFontSize": { "type": "number" },
+              "fontWeight": { "enum": ["normal", "bold"] },
+              "fontStyle": { "enum": ["normal", "italic"] },
+              "strokeDasharray": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "edges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "from", "to"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "from": { "type": "string", "minLength": 1 },
+          "to": { "type": "string", "minLength": 1 },
+          "label": { "type": "string" },
+          "route": { "enum": ["straight", "ortho", "curve"] },
+          "fromSide": { "enum": ["n", "s", "e", "w", "top", "bottom", "left", "right"] },
+          "toSide": { "enum": ["n", "s", "e", "w", "top", "bottom", "left", "right"] },
+          "via": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": { "type": "number" }
+            }
+          },
+          "labelOffset": {
+            "type": "array",
+            "prefixItems": [{ "type": "number" }, { "type": "number" }],
+            "items": false,
+            "minItems": 2,
+            "maxItems": 2
+          },
+          "style": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "stroke": { "type": "string" },
+              "strokeWidth": { "type": "number" },
+              "arrow": { "enum": ["none", "end", "start", "both"] },
+              "strokeDasharray": { "type": "string" },
+              "labelFill": { "type": "string" }
+            }
+          }
+        }
+      }
+    }
+  }
+}

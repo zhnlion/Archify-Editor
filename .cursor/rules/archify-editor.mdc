@@ -1,0 +1,13 @@
+---
+description: Archify Editor 规格与边界（AI 协作）
+alwaysApply: true
+---
+
+# Archify Editor
+
+- 规格入口：`docs/SPEC-INDEX.md`；总案：`docs/DESIGN.md`；ADR：`docs/adr/`。
+- IR：`flowchart` 权威为 `schemas/flowchart.schema.json`；`architecture` 对齐钉扎的 Archify schema（`schemas/ARCHIFY-PIN.md`）。
+- 依赖单向：UI 不直接调 CLI；finalize / 剥离 `meta.editor` 只走 Bridge。
+- 导入 `"diagram_type":"workflow"` 必须投影为 flowchart，并写 `format_hints.source=archify`；有损 toast。
+- 新增编解码放 `src/import` / `src/export`；改 Codec 先补 `test/fixtures` + `test/unit` 再改行为。
+- 测试归档：`test/`（fixtures / helpers / unit / e2e）；合并前 `npm test`、`npm run test:e2e`、`npm run build`。

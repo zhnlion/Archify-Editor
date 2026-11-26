@@ -1,0 +1,36 @@
+node_modules/
+dist/
+.archify/
+*.local
+.DS_Store
+Thumbs.db
+*.log
+.env
+.env.*
+!.env.example
+playwright-report/
+test-results/
+blob-report/
+playwright/.cache/
+
+# Personal / non-publish notes (competitor REA etc.) — do not commit
+docs/personal/**
+!docs/personal/README.md
+docs/private/
+
+# Vendored Archify CLI runtime junk
+tools/archify/node_modules/
+tools/archify/.tmp*
+tools/archify/*.finalize.json
+tools/archify/*.finalize-summary.json
+tools/archify/*.browser-check.json
+tools/archify/out.html
+
+# TypeScript incremental build cache
+*.tsbuildinfo
+
+# Local deploy logs
+logs/
+
+# Third-party reference snapshots (local only, not published)
+docs/refs/cloud-gateway/

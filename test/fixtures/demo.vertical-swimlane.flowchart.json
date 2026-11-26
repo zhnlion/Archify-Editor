@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "diagram_type": "flowchart",
+  "meta": {
+    "title": "纵向泳道示例",
+    "output": "vertical-lanes.html",
+    "locale": "zh-CN",
+    "editor": {
+      "mode": "swimlane",
+      "laneOrientation": "vertical",
+      "layers": [
+        { "id": "lane-a", "label": "列 A", "order": 0, "width": 200, "height": 400 },
+        { "id": "lane-b", "label": "列 B", "order": 1, "width": 200, "height": 400 }
+      ]
+    }
+  },
+  "nodes": [
+    { "id": "n1", "shape": "process", "label": "A1", "pos": [56, 68], "size": [120, 40] },
+    { "id": "n2", "shape": "process", "label": "A2", "pos": [56, 154], "size": [120, 40] },
+    { "id": "n3", "shape": "process", "label": "B1", "pos": [268, 68], "size": [120, 40] }
+  ],
+  "edges": [
+    { "id": "e1", "from": "n1", "to": "n2", "label": "同列" },
+    {
+      "id": "e2",
+      "from": "n2",
+      "to": "n3",
+      "label": "跨列",
+      "style": { "stroke": "#DC2626", "strokeWidth": 2.4, "labelFill": "#FEF3C7" }
+    }
+  ]
+}

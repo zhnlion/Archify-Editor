@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "diagram_type": "flowchart",
+  "meta": { "title": "历史导出密集排版", "locale": "zh-CN" },
+  "nodes": [
+    { "id": "a", "shape": "process", "label": "甲", "pos": [120, 100], "size": [160, 64] },
+    { "id": "b", "shape": "process", "label": "乙", "pos": [140, 120], "size": [160, 64] },
+    { "id": "c", "shape": "process", "label": "丙", "pos": [1080, 640], "size": [160, 64] }
+  ],
+  "edges": [
+    { "id": "e1", "from": "a", "to": "b" },
+    { "id": "e2", "from": "b", "to": "c" }
+  ]
+}

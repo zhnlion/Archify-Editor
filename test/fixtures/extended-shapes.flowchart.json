@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "diagram_type": "flowchart",
+  "meta": {
+    "title": "偶发扩形夹具",
+    "output": "extended-shapes.html",
+    "locale": "zh-CN"
+  },
+  "nodes": [
+    { "id": "n1", "shape": "start", "label": "开始", "pos": [80, 40], "size": [120, 48] },
+    { "id": "n2", "shape": "document", "label": "单据", "pos": [70, 120], "size": [140, 56] },
+    { "id": "n3", "shape": "multi_document", "label": "附件包", "pos": [70, 210], "size": [140, 72] },
+    { "id": "n4", "shape": "database", "label": "库表", "pos": [300, 120], "size": [120, 72] },
+    { "id": "n5", "shape": "preparation", "label": "准备", "pos": [300, 220], "size": [130, 56] },
+    { "id": "n6", "shape": "offpage", "label": "见页2", "pos": [70, 320], "size": [100, 72] },
+    { "id": "n7", "shape": "merge", "label": "汇合", "pos": [300, 320], "size": [120, 64] },
+    { "id": "n8", "shape": "end", "label": "结束", "pos": [200, 420], "size": [120, 48] }
+  ],
+  "edges": [
+    { "id": "e1", "from": "n1", "to": "n2" },
+    { "id": "e2", "from": "n2", "to": "n3" },
+    { "id": "e3", "from": "n2", "to": "n4" },
+    { "id": "e4", "from": "n4", "to": "n5" },
+    { "id": "e5", "from": "n3", "to": "n6" },
+    { "id": "e6", "from": "n5", "to": "n7" },
+    { "id": "e7", "from": "n6", "to": "n7" },
+    { "id": "e8", "from": "n7", "to": "n8" }
+  ]
+}

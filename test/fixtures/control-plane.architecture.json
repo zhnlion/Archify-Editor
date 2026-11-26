@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "分层架构",
+    "subtitle": "",
+    "output": "archify-out/sp-architecture.html",
+    "animation": "trace",
+    "visual_preset": "blueprint",
+    "quality_profile": "showcase",
+    "legend": {
+      "mode": "auto",
+      "entries": {
+        "external": {
+          "label": "hardware"
+        },
+        "messagebus": {
+          "label": "infra"
+        }
+      }
+    }
+  },
+  "components": [
+    {
+      "id": "cfgc",
+      "type": "cloud",
+      "label": "配置中心",
+      "sublabel": "策略/规则下发",
+      "tag": "控制面层",
+      "pos": [268, 24],
+      "size": [180, 42]
+    },
+    {
+      "id": "logc",
+      "type": "database",
+      "label": "日志服务",
+      "sublabel": "日志采集/上报",
+      "tag": "控制面层",
+      "pos": [624, 24],
+      "size": [180, 42]
+    }
+  ],
+  "connections": [],
+  "boundaries": [
+    {
+      "kind": "region",
+      "label": "控制面层",
+      "wraps": ["cfgc", "logc"],
+      "pad": 22
+    }
+  ]
+}
